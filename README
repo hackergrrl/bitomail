@@ -1,0 +1,32 @@
+Bitomail
+--------
+
+Bitomail allows you to operate BitMessage with an e-mail client. It is in
+a stage of a working proof of concept. Currently, Bitomail contains two
+scripts:
+
+* unread2mbox.rb
+* mbox2send.rb
+
+unread2mbox.rb prints all unread BitMessages in a UNIX mbox format and marks
+them as read in BitMessage.
+
+mbox2send.rb sends each mail in UNIX mbox provided on STDIN as BitMessages.
+Prints ackData for each message successfully sent.
+
+You need to edit both scripts in order to serve your needs. Bitomail has no
+configuration files at the moment.
+
+Bitomail is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+Bitomail is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+Bitomail. If not, see <http://www.gnu.org/licenses/>.
+
+♡ Marcel Kolaja
