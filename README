@@ -1,8 +1,8 @@
 Bitomail
 --------
 
-Bitomail allows you to operate Bitmessage with an e-mail client. You need
-a running Bitmessage node providing the PyBitmessage XML-RPC API:
+Bitomail allows you to operate Bitmessage with your e-mail client (MUA). You
+need a running Bitmessage node providing the PyBitmessage XML-RPC API:
 
 https://bitmessage.org/wiki/API_Reference
 
@@ -37,14 +37,14 @@ placed in your inbox:
 
 $ ~/bin/unread2mbox.rb >> ~/Mail/INBOX
 
-Now you can read your Bitmessages in an e-mail client.
+Now you can read your Bitmessages in your MUA.
 
-In order to send Bitmessages from the e-mail client, set ~/bin/mail2send.rb as
-a sendmail program in your e-mail client configuration. Now, you can send
-Bitmessages from your e-mail client, as long as you put the Bitmessage address
-in the local part of the e-mail address in the To: header. Please, note that
-the address has to contain `@', which marks the end of the Bitmessage address.
-Anything after `@' is omitted.
+In order to send Bitmessages from your MUA, set ~/bin/mail2send.rb as
+a sendmail program in your MUA configuration. Now, you can send Bitmessages
+from your MUA, as long as you put the Bitmessage address in the local part of
+the e-mail address in the To: header. Please, note that the address has to
+contain `@', which marks the end of the Bitmessage address.  Anything after `@'
+is omitted.
 
 Disclaimer
 ----------
