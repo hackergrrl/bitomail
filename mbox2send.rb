@@ -6,7 +6,7 @@ require 'json/ext'
 require 'xmlrpc/client'
 
 # variables that need to be set
-fromAddress = ''
+$fromAddress = ''
 rpc_server = 'localhost'
 rpc_port = 8442
 rpc_user = ''
@@ -14,7 +14,7 @@ rpc_password = ''
 
 def send_message(mail_in_text)
 	parsed_mail = Mail.new(mail_in_text)
-	ack_data = $server.call('sendMessage', /\A(.*)@/.match(parsed_mail.to[0])[1], fromAddress, Base64.encode64(parsed_mail.subject), Base64.encode64(parsed_mail.body.to_s))
+	ack_data = $server.call('sendMessage', /\A(.*)@/.match(parsed_mail.to[0])[1], $fromAddress, Base64.encode64(parsed_mail.subject), Base64.encode64(parsed_mail.body.to_s))
 
 	puts ack_data
 end
