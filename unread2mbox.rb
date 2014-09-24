@@ -33,7 +33,7 @@ JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inb
 		puts 'Date: ' + time_received.strftime('%a, %d %b %Y %H:%M:%S %z')
 		puts 'From: ' + to_angle(from_mailaddr)
 		puts 'To: ' + to_angle(bitaddr_to_mail(message['toAddress']))
-		puts 'Subject: =?utf-8?B?' + message['subject'].chomp + '?='
+		puts 'Subject: =?utf-8?B?' + message['subject'].gsub(/\n/, '') + '?='
 		puts 'MIME-Version: 1.0'
 		puts 'Content-Type: text/plain; charset=utf-8'
 		puts 'Content-Transfer-Encoding: base64'
