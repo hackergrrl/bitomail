@@ -1,5 +1,9 @@
 #!/usr/bin/ruby
 
+# authors:
+# * Marcel Kolaja (2014)
+# * Filip Krška (2014)
+
 require 'base64'
 require 'mail'
 require 'json/ext'
@@ -17,4 +21,5 @@ mail = Mail.new(STDIN.read(nil))
 # Make an object to represent the XML-RPC server.
 server = XMLRPC::Client.new(rpc_server, nil, rpc_port, nil, nil, rpc_user, rpc_password)
 
-server.call('sendMessage', /\A(.*)@/.match(mail.to[0])[1], fromAddress, Base64.encode64(mail.subject), Base64.encode64(mail.body.to_s))
+ack_data = server.call('sendMessage', /\A(.*)@/.match(mail.to[0])[1], fromAddress, Base64.encode64(mail.subject), Base64.encode64(mail.body.to_s))
+abort ack_data if /^API Error/.match(ack_data)

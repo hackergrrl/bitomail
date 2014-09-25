@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+# authors:
+# * Marcel Kolaja (2014)
+
 require 'json/ext'
 require 'xmlrpc/client'
 
