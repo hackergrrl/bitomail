@@ -22,4 +22,4 @@ mail = Mail.new(STDIN.read(nil))
 server = XMLRPC::Client.new(rpc_server, nil, rpc_port, nil, nil, rpc_user, rpc_password)
 
 ack_data = server.call('sendMessage', /\A(.*)@/.match(mail.to[0])[1], fromAddress, Base64.encode64(mail.subject), Base64.encode64(mail.body.to_s))
-abort ack_data if /^API Error/.match(ack_data)
+abort ack_data if /\AAPI Error/.match(ack_data)
