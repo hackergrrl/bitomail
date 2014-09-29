@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 # authors:
-# * Marcel Kolaja (2014)
-# * Filip Krška (2014)
+# * Marcel Kolaja <BM-NBbUtpBXJXVHwWHEWeDovMecqQjEe1oN> (2014)
+# * Filip Krška <BM-2cSvE6gCTCVUyFNzo7D1Z43gNPAZ8cx1m4> (2014)
 
 require 'base64'
 require 'mail'
