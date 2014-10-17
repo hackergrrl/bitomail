@@ -3,6 +3,7 @@
 # authors:
 # * Marcel Kolaja <BM-NBbUtpBXJXVHwWHEWeDovMecqQjEe1oN> (2014)
 
+require 'base64'
 require 'json/ext'
 require 'xmlrpc/client'
 require 'maildir'
@@ -22,8 +23,20 @@ def to_angle(id)
 	return '<' + id + '>'
 end
 
+def get_addressbook(server)
+  res = {}
+  JSON.parse(server.call('listAddressBookEntries'))['addresses'].each do |address|
+    bm_address = address['address']
+    bm_label = Base64.decode64(address['label'])
+    res[bm_address] = bm_label
+  end
+  return res
+end
+
 # Make an object to represent the XML-RPC server.
 server = XMLRPC::Client.new(rpc_server, nil, rpc_port, nil, nil, rpc_user, rpc_password)
+
+addressbook = get_addressbook(server)
 
 maildir = Maildir.new("/home/stephen/Mail/Bitmessage")
 
@@ -32,16 +45,18 @@ JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inb
 
 	# process unread messages only
 	if message['read'] == 0
-    puts "got one.."
-		from_mailaddr = bitaddr_to_mail(message['fromAddress'])
+    from_bmaddr = message['fromAddress']
+		from_mailaddr = bitaddr_to_mail(from_bmaddr)
 		time_received = Time.at(message['receivedTime'].to_i)
+    from_name = addressbook[from_bmaddr]
+    #puts "New message from #{from_bmaddr} " + (from_name != nil ? "(#{from_name})" : "")
 
     str = ''
 		str += 'From ' + from_mailaddr + ' ' + time_received.asctime
     str += "\n"
 		str += 'Date: ' + time_received.strftime('%a, %d %b %Y %H:%M:%S %z')
     str += "\n"
-		str += 'From: ' + to_angle(from_mailaddr)
+		str += 'From: ' + (from_name != nil ? from_name + " " : "") + to_angle(from_mailaddr)
     str += "\n"
 		str += 'To: ' + to_angle(bitaddr_to_mail(message['toAddress']))
     str += "\n"
