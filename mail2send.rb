@@ -3,6 +3,7 @@
 # authors:
 # * Marcel Kolaja <BM-NBbUtpBXJXVHwWHEWeDovMecqQjEe1oN> (2014)
 # * Filip Krška <BM-2cSvE6gCTCVUyFNzo7D1Z43gNPAZ8cx1m4> (2014)
+# * Stephen Whitmore <BM-2cT16UznUfB8C4T3FTvL6yHzAGVfjo4YoJ> (2014)
 
 require 'base64'
 require 'mail'
@@ -14,7 +15,8 @@ config = {}
 begin
   config = YAML.load_file('config.yml')
 rescue Errno::ENOENT
-  puts "file not found"
+  puts "config not found; cannot send without a from address!"
+  exit 1
 end
 
 from_address = config['rpc']['address']

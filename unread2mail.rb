@@ -2,6 +2,7 @@
 
 # authors:
 # * Marcel Kolaja <BM-NBbUtpBXJXVHwWHEWeDovMecqQjEe1oN> (2014)
+# * Stephen Whitmore <BM-2cT16UznUfB8C4T3FTvL6yHzAGVfjo4YoJ> (2014)
 
 require 'yaml'
 require 'base64'
@@ -33,7 +34,6 @@ config = {}
 begin
   config = YAML.load_file('config.yml')
 rescue Errno::ENOENT
-  puts "file not found"
 end
 
 $atbitdomain = '@bitmessage'
@@ -81,17 +81,19 @@ JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inb
 		str += 'Message-ID: ' +  to_angle(message['msgid'] + $atbitdomain) + "\n"
 		str += message['message'] + "\n"
 
-    # Write to mailbox storage
+    # Write
     if maildir != nil
+      # Write to maildir
       maildir.add(str)
-      #puts "To maildir!"
     elsif mbox != nil
-      # TODO(noffle): append to mbox file
-      puts str
+      # Append to mbox
+      open(mbox, 'a') do |f|
+        f.puts str
+      end
     end
 
     # Mark message as read
-    #server.call('getInboxMessageByID', inbox_message_id['msgid'], true)
+    server.call('getInboxMessageByID', inbox_message_id['msgid'], true)
   end
 end
 
