@@ -10,8 +10,9 @@ Bitomail
 ========
 Bitomail allows you to operate
 [BitMessage](https://bitmessage.org/wiki/Main_Page) with your e-mail client
-(MUA). You need a running BitMessage node providing the [PyBitmessage XML-RPC
-API](https://bitmessage.org/wiki/API_Reference).
+(MUA). You need [a running BitMessage
+node](https://github.com/Bitmessage/PyBitmessage) providing the [PyBitmessage
+XML-RPC API](https://bitmessage.org/wiki/API_Reference).
 
 Currently, Bitomail contains two scripts:
 
