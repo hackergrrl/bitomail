@@ -28,7 +28,6 @@ read on the server.
 How to use Bitomail
 -------------------
 Place the scripts somewhere on your filesystem, where you will run them.
-It is assumed in this document that you placed these scripts into ~/bin/.
 
 Configuration is done through a `config.yml` YAML file you should create in the
 same directory as the scripts. The following is an example configuration,
@@ -63,5 +62,5 @@ the BitMessage address. Anything after `@` is omitted.
 
 
 
- (c) 2014 Marcel Kolaja, Stephen Whitmore
+ (c) 2014 Marcel Kolaja, Filip Krška, Stephen Whitmore
 
