@@ -58,8 +58,8 @@ In order to send BitMessages from your mail client, set `mail2send.rb` as your
 sendmail program in your mail client configuration. You can then send
 BitMessages from your mail client as long as you put the BitMessage address in the
 local part of the e-mail address in the To: header. (e.g.
-BM-whatever@bitmessage). The address must contain `@', which marks the end of
-the BitMessage address. Anything after `@' is omitted.
+BM-whatever@bitmessage). The address must contain `@`, which marks the end of
+the BitMessage address. Anything after `@` is omitted.
 
 
 
