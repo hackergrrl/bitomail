@@ -2,13 +2,16 @@ Notice
 ======
 This is currently an unmerged fork of Marcel Kolaja's
 [Bitomail](http://personal.kolaja.eu/projects.html) project. I've moved a copy
-here to both a) give it a presence on GitHub, and b) develop my own additions.
+here to both a) give it a presence on GitHub, and b) develop my own additions
+(to hopefully merge back in).
 
 
 Bitomail
 ========
-Bitomail allows you to operate Bitmessage with your e-mail client (MUA). You
-need a running Bitmessage node providing the PyBitmessage XML-RPC API:
+Bitomail allows you to operate
+[Bitmessage](https://bitmessage.org/wiki/Main_Page) with your e-mail client
+(MUA). You need a running Bitmessage node providing the PyBitmessage XML-RPC
+API:
 
 https://bitmessage.org/wiki/API_Reference
 
