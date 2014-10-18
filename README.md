@@ -1,6 +1,12 @@
-Bitomail
---------
+Notice
+======
+This is currently an unmerged fork of Marcel Kolaja's
+[Bitomail](http://personal.kolaja.eu/projects.html) project. I've moved a copy
+here to both a) give it a presence on GitHub, and b) develop my own additions.
 
+
+Bitomail
+========
 Bitomail allows you to operate Bitmessage with your e-mail client (MUA). You
 need a running Bitmessage node providing the PyBitmessage XML-RPC API:
 
@@ -16,9 +22,9 @@ them as read in Bitmessage.
 
 mail2send.rb sends mail provided on STDIN through Bitmessage.
 
+
 How to run Bitomail
 -------------------
-
 Place unread2mbox.rb and mail2send.rb somewhere on your filesystem, where you
 will run them from. It is assumed in this document that you placed these
 scripts into ~/bin/.
@@ -46,9 +52,9 @@ the e-mail address in the To: header. Please, note that the address has to
 contain `@', which marks the end of the Bitmessage address.  Anything after `@'
 is omitted.
 
+
 Disclaimer
 ----------
-
 Bitomail is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option) any later
