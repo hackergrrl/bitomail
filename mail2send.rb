@@ -19,7 +19,7 @@ rescue Errno::ENOENT
   exit 1
 end
 
-from_address = config['rpc']['address']
+from_address = config['from']['address']
 rpc_server = config['rpc']['server']
 rpc_port = config['rpc']['port']
 rpc_user = config['rpc']['user']

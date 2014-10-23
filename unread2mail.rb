@@ -58,6 +58,7 @@ elsif config['mail']['mbox'] != nil
 end
 
 # Read (all) messages and publish new ones
+new_msgs = 0
 JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inbox_message_id|
   message = JSON.parse(server.call('getInboxMessageByID', inbox_message_id['msgid']))['inboxMessage'][0]
 
@@ -68,7 +69,10 @@ JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inb
     from_name = addressbook[from_bmaddr]
     time_received = Time.at(message['receivedTime'].to_i)
 
-    #puts "New message from #{from_bmaddr} " + (from_name != nil ? "(#{from_name})" : "")
+    new_msgs += 1
+
+    # TODO(sww): print to stderr
+    STDERR.puts "New message from #{from_bmaddr} " + (from_name != nil ? "(#{from_name})" : "")
 
 		str = 'From ' + from_mailaddr + ' ' + time_received.asctime + "\n"
 		str += 'Date: ' + time_received.strftime('%a, %d %b %Y %H:%M:%S %z') + "\n"
@@ -97,3 +101,4 @@ JSON.parse(server.call('getAllInboxMessageIDs'))['inboxMessageIds'].each do |inb
   end
 end
 
+STDERR.puts "#{new_msgs} new messages."
